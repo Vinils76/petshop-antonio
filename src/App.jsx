@@ -1,5 +1,11 @@
+import Cabecalho from "./components/Cabecalho/Cabecalho";
+
 const App = () => {
-    return <h1>PetShop</h1>;
+  return (
+    <>
+      <Cabecalho />
+    </>
+  );
 };
 
 export default App;
