@@ -1,12 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Fjalla+One&family=Roboto&display=swap");
-/* Alteracção do Box Model CSS: objetivo de evitar problemas com dimensionamento baseado em bordas */
+
+/* Alteração do Box Model CSS: objetivo de
+evitar problemas com dimensionamento baseado em bordas, paddings
+além de width e height */
 *,
 *::after,
 *::before {
   box-sizing: border-box;
 }
 
-/* Variaveis CSS */
+/* Variáveis CSS */
 :root {
   --cor-primaria-fundo: #0b0a3f;
   --cor-primaria-fundo-hover: #030226;
@@ -24,7 +27,7 @@
   --borda-arredondada: 0.5rem;
 }
 
-/* Definindo tamanho padrão para 1rem (equivale a 16px) */
+/* Definindo o tamanho padrão para 1rem (equivale a 16px) */
 html {
   font-size: 16px;
 }
@@ -33,9 +36,13 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Roboto", sans-serif;
-  /* Propriedades recomendadas para minimizar a chance de serrilhamento de fontes em certos navegadores/dispositivos */
+
+  /* Propriedades recomendadas para
+  minimizar a chance de serrilhamento de fontes
+  em certos navegadores/dispositivos */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
   background-color: #ededf7;
 }
 
@@ -58,4 +65,16 @@ h2 {
   width: 90%;
   max-width: 1000px;
   margin: auto;
+}
+
+/* Estilos para áreas genéricas do layout */
+#sobre,
+#produtos,
+#contato,
+#pagina404 {
+  width: 100%;
+  background-color: #f7f7f7;
+  box-shadow: var(--sombra-box);
+  border-radius: var(--borda-arredondada);
+  padding: 1rem;
 }

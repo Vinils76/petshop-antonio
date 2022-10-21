@@ -36,6 +36,7 @@
 @media screen and (min-width: 700px) {
   .topo div {
     flex-direction: row;
+    padding-bottom: 0;
   }
   .topo h1 a {
     font-size: 2rem;

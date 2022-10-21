@@ -1,16 +1,17 @@
+import { Link } from "react-router-dom";
+import Menu from "../Menu/Menu";
 import estilos from "./Cabecalho.module.css";
 import logo from "../../assets/images/logo.png";
-import Menu from "../Menu/Menu";
 
 const Cabecalho = () => {
   return (
     <header className={estilos.topo}>
       <div className="limitador">
         <h1>
-          <a href="">
+          <Link to="/">
             <img src={logo} alt="Patinha dentro de um coração"></img>
             PetShop
-          </a>
+          </Link>
         </h1>
 
         <Menu />
