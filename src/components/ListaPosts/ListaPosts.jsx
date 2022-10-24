@@ -29,14 +29,12 @@ const ListaPosts = () => {
 
   return (
     <div className={estilos.lista_posts}>
-      {posts.map((post) => {
-        return (
-          <article className={estilos.post}>
-            <h3>{post.titulo}</h3>
-            <p>{post.subtitulo}</p>
-          </article>
-        );
-      })}
+      {posts.map(({ id, titulo, subtitulo }) => (
+        <article className={estilos.post} key={id}>
+          <h3> {titulo} </h3>
+          <p>{subtitulo}</p>
+        </article>
+      ))}
     </div>
   );
 };
