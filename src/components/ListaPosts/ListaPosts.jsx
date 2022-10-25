@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+
 import serverApi from "../../api/servidor-api";
 import estilos from "./ListaPosts.module.css";
 const ListaPosts = () => {
@@ -20,6 +21,12 @@ const ListaPosts = () => {
     }
     getPosts();
   }, []);
+
+  if (loading) {
+    return <mark style={{ backgroundColor: "red" }}>Carregando....</mark>;
+  } else {
+    return <mark>Carregado!</mark>;
+  }
 
   return (
     <div className={estilos.lista_posts}>
