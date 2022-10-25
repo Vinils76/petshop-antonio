@@ -1,0 +1,5 @@
+.loading {
+  background-color: white;
+  text-align: center;
+  border-radius: var(--borda-arredondada);
+}

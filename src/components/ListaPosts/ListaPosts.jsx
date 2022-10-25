@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 
 import serverApi from "../../api/servidor-api";
+import LoadingDesenho from "../LoadingDesenho/LoadingDesenho";
 import estilos from "./ListaPosts.module.css";
 const ListaPosts = () => {
   const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   console.log(serverApi);
 
@@ -15,6 +17,7 @@ const ListaPosts = () => {
         const resposta = await fetch(`${serverApi}/posts`);
         const dados = await resposta.json();
         setPosts(dados);
+        setLoading(false);
       } catch (error) {
         console.log("deu ruim " + error.message);
       }
@@ -23,14 +26,12 @@ const ListaPosts = () => {
   }, []);
 
   if (loading) {
-    return <mark style={{ backgroundColor: "red" }}>Carregando....</mark>;
-  } else {
-    return <mark>Carregado!</mark>;
+    return <LoadingDesenho style={{ backgroundColor: "red" }} />;
   }
 
   return (
     <div className={estilos.lista_posts}>
-      {postsTemp.map(({ id, titulo, subtitulo }) => (
+      {posts.map(({ id, titulo, subtitulo }) => (
         <article className={estilos.post} key={id}>
           <h3> {titulo} </h3>
           <p>{subtitulo}</p>
