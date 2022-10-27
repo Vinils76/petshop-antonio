@@ -7,6 +7,7 @@ import Pagina404 from "./pages/Pagina404/Pagina404";
 import Produtos from "./pages/Produtos/Produtos";
 import Sobre from "./pages/Sobre/Sobre";
 import Post from "./pages/Post/Post";
+import Categoria from "./components/Categoria/Categoria";
 
 const App = () => {
   return (
@@ -20,6 +21,9 @@ const App = () => {
             </Route>
             <Route exact path="/posts">
               <Redirect to="/" />
+            </Route>
+            <Route exact path="/categoria/:nome">
+              <Categoria />
             </Route>
             <Route path="/produtos">
               <Produtos />
