@@ -4,7 +4,7 @@ import serverApi from "../../api/servidor-api";
 import ArtigoPost from "../ArtigoPost/ArtigoPost";
 import LoadingDesenho from "../LoadingDesenho/LoadingDesenho";
 import estilos from "./ListaPosts.module.css";
-const ListaPosts = () => {
+const ListaPosts = (props) => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -15,7 +15,7 @@ const ListaPosts = () => {
   useEffect(() => {
     async function getPosts() {
       try {
-        const resposta = await fetch(`${serverApi}/posts`);
+        const resposta = await fetch(`${serverApi}/${props.url}`);
         const dados = await resposta.json();
         setPosts(dados);
         setLoading(false);
@@ -24,7 +24,7 @@ const ListaPosts = () => {
       }
     }
     getPosts();
-  }, []);
+  }, [props.url]);
 
   if (loading) {
     return <LoadingDesenho style={{ backgroundColor: "red" }} />;
