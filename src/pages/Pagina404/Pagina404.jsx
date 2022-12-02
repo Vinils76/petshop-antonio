@@ -1,6 +1,6 @@
-import Caixa from "../../components/Caixa/Caixa";
 import estilos from "./Pagina404.module.css";
 import imagem404 from "../../assets/images/404.svg";
+import Caixa from "../../components/Caixa/Caixa";
 
 const Pagina404 = () => {
   return (

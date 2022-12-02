@@ -9,7 +9,7 @@ const Cabecalho = () => {
       <div className="limitador">
         <h1>
           <Link to="/">
-            <img src={logo} alt="Patinha dentro de um coração"></img>
+            <img src={logo} alt="Patinha dentro de um coração" />
             PetShop
           </Link>
         </h1>

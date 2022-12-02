@@ -1,6 +1,6 @@
 import Caixa from "../../components/Caixa/Caixa";
-import estilos from "./Produtos.module.css";
 
+import estilos from "./Produtos.module.css";
 const Produtos = () => {
   return (
     <section>

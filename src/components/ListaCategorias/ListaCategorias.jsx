@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import serverApi from "../../api/servidor-api";
 import LoadingDesenho from "../LoadingDesenho/LoadingDesenho";
 import estilos from "./ListaCategorias.module.css";
@@ -32,7 +32,7 @@ Obs.: o que colocamos no useState representa o valor inicial */
     getCategorias();
   }, []);
 
-  if (loading) return <LoadingDesenho />;
+  if (loading) return <LoadingDesenho texto="categorias..." />;
 
   return (
     <div className={estilos.lista_categorias}>
@@ -40,7 +40,12 @@ Obs.: o que colocamos no useState representa o valor inicial */
         {categorias.map(({ id, nome }) => {
           return (
             <li key={id}>
-              <Link to={`/categoria/${nome}`}>{nome}</Link>
+              <NavLink
+                activeClassName={estilos.ativo}
+                to={`/categoria/${nome}`}
+              >
+                {nome}
+              </NavLink>
             </li>
           );
         })}

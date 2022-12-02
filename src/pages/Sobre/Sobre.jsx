@@ -4,7 +4,6 @@ const Sobre = () => {
   return (
     <section>
       <h2 className={estilos.titulo_secao}>Sobre nosso PetShop</h2>
-
       <Caixa>
         <h3>Missão</h3>
         <p>
@@ -20,7 +19,6 @@ const Sobre = () => {
           iure fugit id nobis dolorum aliquid necessitatibus. Labore alias fugit
           expedita ea asperiores tempora!
         </p>
-
         <h3>Valores</h3>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos

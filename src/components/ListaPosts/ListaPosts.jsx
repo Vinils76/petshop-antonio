@@ -1,33 +1,49 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from "react"; // Hooks do React
 
 import serverApi from "../../api/servidor-api";
 import ArtigoPost from "../ArtigoPost/ArtigoPost";
 import LoadingDesenho from "../LoadingDesenho/LoadingDesenho";
 import estilos from "./ListaPosts.module.css";
-const ListaPosts = (props) => {
+const ListaPosts = ({ url }) => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  console.log(serverApi);
-
-  const postsTemp = [];
-
   useEffect(() => {
+    setLoading(true);
     async function getPosts() {
       try {
-        const resposta = await fetch(`${serverApi}/${props.url}`);
+        // const resposta = await fetch(`${serverApi}/posts`);
+
+        // Solução Guilherme
+        // const resposta = await fetch(`${serverApi}/${url || "posts"}`);
+
+        // Solução Adriel
+        /* const resposta = await fetch(
+          `${serverApi}/${url != undefined ? url : "posts"}`
+        ); */
+
+        const resposta = await fetch(`${serverApi}/${url}`);
         const dados = await resposta.json();
         setPosts(dados);
         setLoading(false);
       } catch (error) {
-        console.log("deu ruim " + error.message);
+        console.log("Deu ruim! " + error.message);
       }
     }
     getPosts();
-  }, [props.url]);
+    /* É necessário indicar a url como dependência pois
+    ela muda toda vez em que uma categoria é clicada.
+    
+    Desta forma, o useEffect "entende" que ele deve executar novamente
+    as suas ações (neste caso, executar novamente o fetch na API) */
+  }, [url]);
 
   if (loading) {
-    return <LoadingDesenho style={{ backgroundColor: "red" }} />;
+    return <LoadingDesenho texto="posts..." />;
+  }
+
+  if (posts.length === 0) {
+    return <h2 style={{ textAlign: "center" }}> Não há posts!</h2>;
   }
 
   return (
